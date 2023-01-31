@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Vistas.Pagina2"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="volver.png"
+               VerticalOptions="Start"
+               HeightRequest="50"
+               HorizontalOptions="Start"
+               Margin="10"
+               
+            >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                      Command="{Binding volverCommand}"
+                                      />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <CollectionView ItemsSource="{Binding listaUsuarios}"
+                        VerticalOptions="CenterAndExpand"
+                        Margin="20,60,20,0"
+                        x:Name="listaUsers"
+                        >
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" 
+                                 Span="1" 
+                                 VerticalItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Frame CornerRadius="15"
+                           BackgroundColor="Green">
+
+                       
+
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Imagen}"
+                               HeightRequest="100"/>
+
+                                <Label Text="{Binding Nombre}"
+                               VerticalOptions="Center"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               
+                               />
+                            </StackLayout>
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding 
+                                                  Path=BindingContext.alertaCommand, 
+                                                  Source={x:Reference listaUsers}}"
+                                                  CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+
+                        
+                        
+                    </Frame>
+                    
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        
+    </Grid>
+    
+</ContentPage>

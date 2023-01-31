@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Vistas.Pokemon.RegistrarPokemon"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+
+    <Grid RowDefinitions="80, *"
+          BackgroundColor="#1D1D1D">
+
+        <StackLayout Orientation="Horizontal"
+                     Margin="10">
+
+            <Image Source="volver.png"
+                   Margin="10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding volverCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="https://i.ibb.co/tC1FVWt/Titulo-Universo-Pok-mon.png"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Image Source="https://i.ibb.co/zrwJVH6/Pokeball-PNG.png" />
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="1"
+                     Margin="10">
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Nombre:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+
+                <Entry Placeholder="Ingrese Nombre"
+                       FontAttributes="Bold"
+                       TextColor="#ffeb72"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       FontSize="15"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding TxtNombre}"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Color Fondo:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+
+                <Entry Placeholder="Ingrese Color Fondo"
+                       FontAttributes="Bold"
+                       TextColor="{Binding TxtColorFondo}"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       FontSize="15"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding TxtColorFondo}"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Numero:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+
+                <Entry Placeholder="Ingrese Numero"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       FontSize="15"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding Txtnro}"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Icono:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+
+                <Entry Placeholder="Ingrese Icono"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       FontSize="15"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding Txticono}"/>
+
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Poder:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+
+                <Entry Placeholder="Ingrese Poder"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       FontSize="15"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding Txtpoder}"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Color Poder:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+
+                <Entry Placeholder="Ingrese Color  Poder"
+                       FontAttributes="Bold"
+                       TextColor="{Binding TxtColorPoder}"
+                       PlaceholderColor="White"
+                       TextTransform="Lowercase"
+                       FontSize="15"
+                       HorizontalOptions="StartAndExpand"
+                       Text="{Binding TxtColorPoder}"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+
+                <Image Source="https://i.ibb.co/jzBptmj/visibilidad.png"
+                       HeightRequest="20"
+                       />
+
+                <Label Text="Vista Previa"
+                       FontSize="15"
+                       TextColor="White"
+                       FontAttributes="Italic"
+                       VerticalOptions="Center"
+                       />
+
+            </StackLayout>
+
+            <Grid RowDefinitions="100, *"
+                  Margin="0,10,0,0"
+                  >
+
+                <Frame Grid.Row="1" 
+                       WidthRequest="250"
+                       HorizontalOptions="Center"
+                       CornerRadius="15"
+                       Margin="0,-38,0,0"
+                       BackgroundColor="{Binding TxtColorFondo}"
+                       >
+
+                    <StackLayout Margin="0,90,0,0">
+
+                        <Label Text="{Binding Txtnro}"/>
+                        
+                        <Label Text="{Binding TxtNombre}" 
+                               CharacterSpacing="1"
+                               FontSize="20"
+                               Margin="0,0,0,10"
+                               />
+
+                        <Button Text="{Binding Txtpoder}"
+                                CornerRadius="30"
+                                HorizontalOptions="Start" 
+                                TextTransform="None"
+                                HeightRequest="40"
+                                BackgroundColor="{Binding TxtColorPoder}"/>
+
+                    </StackLayout>                        
+                    
+                </Frame>
+
+                <Image Source="{Binding Txticono}" 
+                       Grid.RowSpan="2"
+                       HeightRequest="170"
+                       VerticalOptions="StartAndExpand"/>
+                
+            </Grid>
+
+            <Frame HorizontalOptions="Center"
+                   Padding="6"
+                   Margin="0,0,0,0"
+                   CornerRadius="15"
+                   HasShadow="False"
+                   BackgroundColor="#FFF548">
+                <Button Text="+"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#FFE150"
+                        BorderColor="#FFF288"
+                        BorderWidth="6"
+                        CornerRadius="15"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Command="{Binding insertarCommand}"/>
+            </Frame>
+
+        </StackLayout>
+
+    </Grid>
+    
+</ContentPage>
